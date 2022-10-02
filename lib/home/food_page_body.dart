@@ -4,7 +4,6 @@ import 'package:delivery_app/widgets/big_text.dart';
 import 'package:delivery_app/widgets/icon_and_text_widget.dart';
 import 'package:delivery_app/widgets/small_text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -51,7 +50,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ),
         ),
         //dots
-        new DotsIndicator(
+         DotsIndicator(
           dotsCount: 5,
           position: currentPageValue,
           decorator: DotsDecorator(
@@ -78,14 +77,14 @@ class _FoodPageBodyState extends State<FoodPageBody> {
              width: Dimensions.width10,
            ),
            Container(
-             margin: EdgeInsets.only(bottom: 3),
+             margin: const EdgeInsets.only(bottom: 3),
              child: BigText(text: "." , color: Colors.black26,),
            ),
            SizedBox(
              width: Dimensions.width10,
            ),
            Container(
-               margin: EdgeInsets.only(bottom: 2),
+               margin: const EdgeInsets.only(bottom: 2),
                child: SmallText(text: "Food pairing"),
            ),
          ],
@@ -95,7 +94,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         Container(
           height: 700,
           child: ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: 5,
             itemBuilder: (context , index ) {
@@ -112,7 +111,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(Dimensions.radius30),
                           color: Colors.white38,
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage(
                               'assets/images/food5.jpg',
                             ),
@@ -147,7 +146,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 SmallText(text: "with chinese characteristics"),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
+                                  children: const [
                                     IconAndTextWidget(
                                       icon: Icons.circle_sharp,
                                       text: "Normal",
