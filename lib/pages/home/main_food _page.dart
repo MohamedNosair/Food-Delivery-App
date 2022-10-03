@@ -1,4 +1,4 @@
-import 'package:delivery_app/home/food_page_body.dart';
+import 'package:delivery_app/pages/home/food_page_body.dart';
 import 'package:delivery_app/utils/color.dart';
 import 'package:delivery_app/utils/dimensions.dart';
 import 'package:delivery_app/widgets/big_text.dart';
@@ -16,6 +16,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
     print("current height is" + MediaQuery.of(context).size.height.toString());
+    print("current width is" + MediaQuery.of(context).size.width.toString());
     return Scaffold(
       body: Column(
         children: [
@@ -33,7 +34,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       Row(
                         children: [
                           SmallText(text: "Tanta" , color: Colors.black54,),
-                          Icon(Icons.arrow_drop_down_outlined),
+                          const Icon(Icons.arrow_drop_down_outlined),
                         ],
                       )
 
@@ -55,7 +56,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
             ),
           ),
           //showing the body
-          Expanded(
+          const Expanded(
               child: SingleChildScrollView(
                 physics: BouncingScrollPhysics(),
                   child: FoodPageBody(),

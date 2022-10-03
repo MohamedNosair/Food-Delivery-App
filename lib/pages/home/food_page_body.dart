@@ -6,6 +6,8 @@ import 'package:delivery_app/widgets/small_text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
+import '../../widgets/app_column.dart';
+
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
   @override
@@ -91,91 +93,88 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ),
         ),
         // list of food and image
-        Container(
-          height: 700,
-          child: ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: 5,
-            itemBuilder: (context , index ) {
-                return Container(
-                  margin: EdgeInsets.only(
-                    left: Dimensions.width10 , right:Dimensions.width10, bottom: Dimensions.height10,
-                  ),
-                  child: Row(
-                    children: [
-                      //image section
-                      Container(
-                        width: 120,
-                        height:120,
+        ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 5,
+          itemBuilder: (context , index ) {
+              return Container(
+                margin: EdgeInsets.only(
+                  left: Dimensions.width10 , right:Dimensions.width10, bottom: Dimensions.height10,
+                ),
+                child: Row(
+                  children: [
+                    //image section
+                    Container(
+                      width: Dimensions.listViewImgSize,
+                      height: Dimensions.listViewImgSize,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(Dimensions.radius30),
+                        color: Colors.white38,
+                        image: const DecorationImage(
+                          image: AssetImage(
+                            'assets/images/food5.jpg',
+                          ),
+                          fit: BoxFit.cover
+                        ),
+
+                      ),
+
+                    ),
+                    //text container
+                    Expanded(
+                      child: Container(
+                        height: Dimensions.listViewTextContSize,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(Dimensions.radius30),
-                          color: Colors.white38,
-                          image: const DecorationImage(
-                            image: AssetImage(
-                              'assets/images/food5.jpg',
-                            ),
-                            fit: BoxFit.cover
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(Dimensions.radius30),
+                            bottomRight: Radius.circular(Dimensions.radius30),
                           ),
-
+                          color: Colors.white,
                         ),
-
-                      ),
-                      //text container
-                      Expanded(
-                        child: Container(
-                          height: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(Dimensions.radius30),
-                              bottomRight: Radius.circular(Dimensions.radius30),
-                            ),
-                            color: Colors.white,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            left: Dimensions.width10,
+                            right: Dimensions.width10,
                           ),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                              left: Dimensions.width10,
-                              right: Dimensions.width10,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                BigText(text: "Nutritious fruit meal in Egypt"),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              BigText(text: "Nutritious fruit meal in Egypt"),
 
-                                SmallText(text: "with chinese characteristics"),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: const [
-                                    IconAndTextWidget(
-                                      icon: Icons.circle_sharp,
-                                      text: "Normal",
-                                      iconColor: AppColors.iconColor1,
-                                    ),
-                                    IconAndTextWidget(
-                                      icon: Icons.location_on,
-                                      text: "1.7km",
-                                      iconColor: AppColors.mainColor,
-                                    ),
-                                    IconAndTextWidget(
-                                      icon: Icons.access_time,
-                                      text: "32win",
-                                      iconColor: AppColors.iconColor2,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                              SmallText(text: "with chinese characteristics"),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  IconAndTextWidget(
+                                    icon: Icons.circle_sharp,
+                                    text: "Normal",
+                                    iconColor: AppColors.iconColor1,
+                                  ),
+                                  IconAndTextWidget(
+                                    icon: Icons.location_on,
+                                    text: "1.7km",
+                                    iconColor: AppColors.mainColor,
+                                  ),
+                                  IconAndTextWidget(
+                                    icon: Icons.access_time,
+                                    text: "32win",
+                                    iconColor: AppColors.iconColor2,
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ),
+                    ),
 
-                    ],
-                  ),
-                );
-              },
+                  ],
+                ),
+              );
+            },
 
-          ),
         ),
       ],
     );
@@ -215,8 +214,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             margin: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius30),
-              color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
-              image: DecorationImage(
+              color: index.isEven ? const Color(0xFF69c5df) : const Color(0xFF9294cc),
+              image: const DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage("assets/images/food6.jpg"),
               ),
@@ -230,7 +229,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius30),
                 color: Colors.white,
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Color(0xFFe8e8e8),
                     blurRadius: 5.0,
@@ -248,56 +247,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ),
               child: Container(
                 padding: EdgeInsets.only(top: Dimensions.height15, left: Dimensions.height15, right: Dimensions.height15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    BigText(text: "Chinese Side"),
-                    SizedBox(
-                      height: Dimensions.height5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Wrap(
-                          children: List.generate(
-                            5,
-                            (index) => Icon(
-                              Icons.star,
-                              color: AppColors.mainColor,
-                              size: 15,
-                            ),
-                          ),
-                        ),
-                        SmallText(text: "4.5"),
-                        SmallText(text: "1237"),
-                        SmallText(text: "comments"),
-                      ],
-                    ),
-                    SizedBox(
-                      height: Dimensions.height10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconAndTextWidget(
-                          icon: Icons.circle_sharp,
-                          text: "Normal",
-                          iconColor: AppColors.iconColor1,
-                        ),
-                        IconAndTextWidget(
-                          icon: Icons.location_on,
-                          text: "1.7km",
-                          iconColor: AppColors.mainColor,
-                        ),
-                        IconAndTextWidget(
-                          icon: Icons.access_time,
-                          text: "32win",
-                          iconColor: AppColors.iconColor2,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                child: AppColumn(text: "Chinese Side",),
               ),
             ),
           ),
