@@ -34,6 +34,7 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
     }
   }
 
+  @override
   Widget build(BuildContext context) {
     return Container(
       child: secondHalf.isEmpty ? SmallText(text: firstHalf) : Column(
